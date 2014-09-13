@@ -57,6 +57,36 @@ var init = function() {
 	    context.strokeStyle = "#000000";
 	    context.stroke();
 
+	    // RENT title
+	    var rentX = x + width - 35;
+	    var rentY = y + 200;
+	    context.beginPath();
+	    context.textAlign = "right";
+	    context.fillStyle = "#000000";
+		context.font = "bold 22px sans-serif";
+	    context.fillText("RENT", rentX, rentY);
+
+	    // Rent info per line
+	    var rentSpacing = 50;
+	    var numCardsInSet = 3;
+	    for (var i = 0; i < numCardsInSet; i++) {
+
+	    	var rentNumX = x + 65;
+		    var rentNumY = y + 250 + (rentSpacing * i);
+		    context.beginPath();
+		    context.textAlign = "right";
+		    context.fillStyle = "#000000";
+			context.font = "bold 22px sans-serif";
+		    context.fillText(i+1, rentNumX, rentNumY);
+
+	    	var rentValX = x + width - 35;
+		    var rentValY = y + 250 + (rentSpacing * i);
+		    context.beginPath();
+		    context.textAlign = "right";
+		    context.fillStyle = "#000000";
+			context.font = "bold 22px sans-serif";
+		    context.fillText("$" + 2*(i+1) + "M", rentValX, rentValY);
+	    }
 	};
 
 	drawCard();
