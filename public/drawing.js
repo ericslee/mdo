@@ -38,8 +38,9 @@ var init = function() {
 
 		// Top bar text
 		context.beginPath();
-		context.font = "bold 12px sans-serif";
+		context.font = "bold 18px sans-serif";
 		context.textAlign = "center";
+		context.fillStyle = "#000000";
 		var textX = x + (width/2);
 		var textY = y + 20 + (topBarHeight/2);
 		context.fillText("Fujiyoshi", textX, textY);
