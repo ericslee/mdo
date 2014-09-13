@@ -3,7 +3,7 @@
 
 var init = function() {
 
-	var drawCard = function() {
+	var drawPropertyCard = function() {
 		var canvas = document.getElementById("testu");
 		var context = canvas.getContext("2d");
 
@@ -102,7 +102,7 @@ var init = function() {
 	    }
 	};
 
-	drawCard();
+	drawPropertyCard();
 };
 
 window.addEventListener("load", init, false);
