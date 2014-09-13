@@ -13,10 +13,7 @@ var init = function() {
 		var width = 280;
 		var height = 440;
 
-		// Background (temp)
-		//context.fillRect(0, 0, 800, 600);
-
-		// Card backing
+		// Card base (white background)
 		context.beginPath();
 		context.rect(x, y, width, height);
 		context.strokeStyle = "#000000";
@@ -37,12 +34,13 @@ var init = function() {
 		context.fill();
 
 		// Top bar text
+		// TODO: test linebreak w/ 38 Miley Luxury Resort and Spa
 		context.beginPath();
-		context.font = "bold 18px sans-serif";
+		context.font = "bold 19px sans-serif";
 		context.textAlign = "center";
 		context.fillStyle = "#000000";
 		var textX = x + (width/2);
-		var textY = y + 20 + (topBarHeight/2);
+		var textY = y + 25 + (topBarHeight/2);
 		context.fillText("Fujiyoshi", textX, textY);
 
 		// Top-left circle
@@ -57,7 +55,15 @@ var init = function() {
 	    context.strokeStyle = "#000000";
 	    context.stroke();
 
-	    // RENT title
+	    // Monetary value (in top-left circle)
+	    var moneyValue = 9;
+	    context.beginPath();
+	    context.textAlign = "center";
+	    context.fillStyle = "#000000";
+		context.font = "bold 16px sans-serif";
+	    context.fillText("$" + moneyValue + "M", cX, cY + 5);
+
+	    // RENT label
 	    var rentX = x + width - 35;
 	    var rentY = y + 200;
 	    context.beginPath();
@@ -71,7 +77,8 @@ var init = function() {
 	    var numCardsInSet = 3;
 	    for (var i = 0; i < numCardsInSet; i++) {
 
-	    	var rentNumX = x + 65;
+	    	// Set number (left column)
+	    	var rentNumX = x + 55;
 		    var rentNumY = y + 250 + (rentSpacing * i);
 		    context.beginPath();
 		    context.textAlign = "right";
@@ -79,11 +86,17 @@ var init = function() {
 			context.font = "bold 22px sans-serif";
 		    context.fillText(i+1, rentNumX, rentNumY);
 
+		    var longEllipses = ". . . . . . . . . . . . . . .";
+		    context.beginPath();
+			context.font = "bold 16px sans-serif";
+		    context.textAlign = "left";
+		    context.fillText(longEllipses, rentNumX + 7, rentNumY);
+
+		    // Rent money value
 	    	var rentValX = x + width - 35;
-		    var rentValY = y + 250 + (rentSpacing * i);
+		    var rentValY = rentNumY;
 		    context.beginPath();
 		    context.textAlign = "right";
-		    context.fillStyle = "#000000";
 			context.font = "bold 22px sans-serif";
 		    context.fillText("$" + 2*(i+1) + "M", rentValX, rentValY);
 	    }
