@@ -8,6 +8,8 @@
 	"dependencies" : {
 		"express" : "4.x",
 		"forever" : "*",
-		"peer" : "*"
+		"peer" : "*",
+		"jquery" : "*",
+		"semantic-ui" : "*"
 	}
 }
