@@ -2,13 +2,17 @@ var Card = (function () {
     // private static
 
     // constructor
-    var cardConstruct = function (cardJSON) {
+    var cardConstruct = function (cardName, cardJSON) {
         // private
-        var name = cardJSON.name;
-        var monetaryValue = cardJSON.monetaryValue;
+        var name = cardName;
+        var monetaryValue = cardJSON.value;
+        var typeOfCard; // can be 'money', 'rent', 'property', 'action'
         var propertyColor;
         // array of rent values
         var rentValues;
+
+        // determine type of card
+        
 
         // if property card, will have following properties
         propertyColor = cardJSON.propertyColor !== undefined ? cardJSON.propertyColor : null;
@@ -33,14 +37,13 @@ var Card = (function () {
     return cardConstruct;
 })();
 
-// test code
+//test code
 
-// var card = {
-//     name: "Deal Breaker",
-//     monetaryValue: 5,
-//     propertyColor: "purple",
-//     rentValues: [1, 2, 3, 4]
-// };
-// var DealBreaker = new Card(card);
-// console.log(DealBreaker.getRentValue(2));
-// DealBreaker.toString();
+var card = {
+    monetaryValue: 5,
+    propertyColor: "purple",
+    rentValues: [1, 2, 3, 4]
+};
+var DealBreaker = new Card("Deal Breaker", card);
+console.log(DealBreaker.getRentValue(2));
+console.log(DealBreaker.toString());
