@@ -4,49 +4,43 @@ var Card = (function () {
     // constructor
     var cardConstruct = function (cardJSON) {
         // private
-        var cardName = cardJSON.cardName;
+        var name = cardJSON.name;
         var monetaryValue = cardJSON.monetaryValue;
         var propertyColor;
         // array of rent values
-        var rentValue;
+        var rentValues;
 
         // if property card, will have following properties
-        if (cardJSON.propertyColor) {
-            propertyColor = cardJSON.propertyColor;
-        }
-        if (cardJSON.rentValue) {
-            rentValue = cardJSON.rentValue;
-        }
+        propertyColor = cardJSON.propertyColor !== undefined ? cardJSON.propertyColor : null;
+        rentValues = cardJSON.rentValues !== undefined ? cardJSON.rentValues : null;
 
         // public (this instance only), getters
-        this.get_card_name = function () { return cardName; };
-        this.get_monetary_value = function () { return monetaryValue; };
-        this.get_property_color = function () { return propertyColor; };
-        this.get_rent_value = function (numberOfProperties) { 
-            if (numberOfProperties >= 0 && numberOfProperties < rentValue.length) {
-                return rentValue[numberOfProperties];
+        this.getName = function () { return name; };
+        this.getMonetaryValue = function () { return monetaryValue; };
+        this.getPropertyColor = function () { return propertyColor; };
+        this.getRentValue = function (numberOfProperties) { 
+            if (numberOfProperties >= 0 && numberOfProperties < rentValues.length) {
+                return rentValues[numberOfProperties];
             }
         };
-        this.toString = function () {
-            console.log('-------------------');
-            console.log('Card: ' + cardName);
-            console.log('Value: ' + monetaryValue);
-            console.log('Property color: ' + propertyColor);
-            console.log('Rent value: ' +  rentValue);
-        };
+        this.getRentValues = function() { return rentValues; };
+    };
+
+    cardConstruct.prototype.toString = function () {
+        return "[" + this.getName() + " (" + this.getPropertyColor() + "): " + this.getMonetaryValue() + "M, <" + this.getRentValues() + ">]";
     };
 
     return cardConstruct;
 })();
 
 // test code
-/* 
-var card = {
-    cardName: "Deal Breaker",
-    monetaryValue: 5,
-    propertyColor: "purple",
-    rentValue: [1, 2, 3, 4]
-};
-var DealBreaker = new Card(card);
-console.log(DealBreaker.get_rent_value(2));
-DealBreaker.toString();*/
+
+// var card = {
+//     name: "Deal Breaker",
+//     monetaryValue: 5,
+//     propertyColor: "purple",
+//     rentValues: [1, 2, 3, 4]
+// };
+// var DealBreaker = new Card(card);
+// console.log(DealBreaker.getRentValue(2));
+// DealBreaker.toString();
