@@ -1,0 +1,13 @@
+{
+	"name" : "mdo-server",
+	"main" : "server.js",
+	"repository" : {
+		"type" : "git",
+		"url" : "https://github.com/ericslee/mdo"
+	},
+	"dependencies" : {
+		"express" : "4.x",
+		"forever" : "*",
+		"peer" : "*"
+	}
+}
