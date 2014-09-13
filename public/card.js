@@ -10,7 +10,7 @@ var Card = (function () {
         // array of rent values
         var rentValue;
 
-        // if property
+        // if property card, will have following properties
         if (cardJSON.propertyColor) {
             propertyColor = cardJSON.propertyColor;
         }
@@ -19,9 +19,7 @@ var Card = (function () {
         }
 
         // public (this instance only), getters
-        this.get_card_name = function () { 
-            console.log(cardName);
-            return cardName; };
+        this.get_card_name = function () { return cardName; };
         this.get_monetary_value = function () { return monetaryValue; };
         this.get_property_color = function () { return propertyColor; };
         this.get_rent_value = function (numberOfProperties) { 
@@ -29,16 +27,26 @@ var Card = (function () {
                 return rentValue[numberOfProperties];
             }
         };
+        this.toString = function () {
+            console.log('-------------------');
+            console.log('Card: ' + cardName);
+            console.log('Value: ' + monetaryValue);
+            console.log('Property color: ' + propertyColor);
+            console.log('Rent value: ' +  rentValue);
+        };
     };
 
     return cardConstruct;
 })();
 
+// test code
+/* 
 var card = {
     cardName: "Deal Breaker",
     monetaryValue: 5,
-    propertyColor: "blue",
+    propertyColor: "purple",
     rentValue: [1, 2, 3, 4]
 };
 var DealBreaker = new Card(card);
-console.log(DealBreaker.get_card_name());
+console.log(DealBreaker.get_rent_value(2));
+DealBreaker.toString();*/
