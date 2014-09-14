@@ -10,6 +10,6 @@
 		"forever" : "*",
 		"peer" : "*",
 		"jquery" : "*",
-		"semantic-ui" : "*"
+		"semantic-browser" : "*"
 	}
 }
