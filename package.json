@@ -9,6 +9,7 @@
 		"express" : "4.x",
 		"forever" : "*",
 		"peer" : "*",
+		"peerjs-lobby" : "*",
 		"jquery" : "*",
 		"semantic-browser" : "*"
 	}

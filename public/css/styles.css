@@ -1,5 +1,19 @@
-.floating_chat_tab {
-	background-color: blue;
-	color: white;
-	display: block;
+body {
+	margin: 0px;
+	overflow: hidden;
+	background-image: url('../images/wood_tile.jpg');
+	background-repeat: repeat;
+}
+
+div {
+	background-color: white;
+}
+
+.sidebar {
+	padding: 1em;
+}
+
+#chat_send {
+	/*position: absolute;
+	bottom: 1em;*/
 }
