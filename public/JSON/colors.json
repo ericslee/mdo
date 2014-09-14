@@ -18,15 +18,15 @@
 		"rents" : [1,3,5]
 	},
 	"red" : {
-		"Rents" : [2,3,6]
+		"rents" : [2,3,6]
 	},
 	"yellow" : {
-		"Rents" : [2,4,6]
+		"rents" : [2,4,6]
 	},
 	"green" : {
-		"Rents" : [2,4,7]
+		"rents" : [2,4,7]
 	},
 	"blue" : {
-		"Rents" : [3,8]
+		"rents" : [3,8]
 	}
 }

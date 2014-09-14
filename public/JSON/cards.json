@@ -79,7 +79,7 @@
 	"PuOrProperty" : {
 		"value" : 2,
 		"components" : {
-			"propertyWild" : [
+			"property" : [
 				{ "color" : "purple" },
 				{ "color" : "orange" }
 			]
@@ -88,7 +88,7 @@
 	"RdYeProperty" : {
 		"value" : 3,
 		"components" : {
-			"propertyWild" : [
+			"property" : [
 				{ "color" : "red" },
 				{ "color" : "yellow" }
 			]
@@ -97,7 +97,7 @@
 	"BkTeProperty" : {
 		"value" : 2,
 		"components" : {
-			"propertyWild" : [
+			"property" : [
 				{ "color" : "black" },
 				{ "color" : "teal" }
 			]
@@ -106,7 +106,7 @@
 	"BkGrProperty" : {
 		"value" : 4,
 		"components" : {
-			"propertyWild" : [
+			"property" : [
 				{ "color" : "black" },
 				{ "color" : "green" }
 			]
@@ -115,7 +115,7 @@
 	"BkLbProperty" : {
 		"value" : 4,
 		"components" : {
-			"propertyWild" : [
+			"property" : [
 				{ "color" : "black" },
 				{ "color" : "light_blue" }
 			]
@@ -124,7 +124,7 @@
 	"GrBlProperty" : {
 		"value" : 4,
 		"components" : {
-			"propertyWild" : [ 
+			"property" : [ 
 				{ "color" : "green" },
 				{ "color" : "blue" }
 			]
@@ -133,7 +133,7 @@
 	"BrLbProperty" : {
 		"value" : 1,
 		"components" : {
-			"propertyWild" : [
+			"property" : [
 				{"color" : "brown"}, 
 				{"color" : "light_blue"}
 			]

@@ -1,23 +1,23 @@
 var Deck = (function () {
-    // private static
 
     // constructor
     var deckConstruct = function (deckJson, cardsJson, colorsJson) {
         // private
         var currentDeck = [];
 
-        // load deck, parse through deck json, for each type of card, 
-        // create x instances of the card object loading in info from cards.json of that name
-
         // for each card type
         for (var cardType in deckJson) {
             // create a new card of that type based on the name
-            var newCard = new Card(cardType, cardsJson[cardType]);
+            var newCard = new Card(cardType, cardsJson[cardType], colorsJson);
+            console.log(newCard.toString());
 
             // add the appropriate number of each card to the deck
-
-            //console.log(deckJson[cardType]);
+            for (var i = 0; i < deckJson[cardType]; i++) {
+                currentDeck.push(newCard);
+            }
         }
+        console.log('Total card count: ' + currentDeck.length);
+
         // public (this instance only)
         this.get_deck = function () { return currentDeck; };
 
@@ -65,6 +65,3 @@ $.when(loadDeckJson(), loadCardJson(), loadColorsJson()).done(function(a1, a2, a
     // time to make a deck
     theDeck = new Deck(deckJson, cardsJson, colorsJson);
 });
-
-
-// test to see if the deck has been successfully created and populated
