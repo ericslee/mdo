@@ -3,35 +3,56 @@
 
 var init = function() {
 
-	var drawPropertyCard = function() {
-		var canvas = document.getElementById("testu");
-		var context = canvas.getContext("2d");
+	// top-left corner of card
+	var x = 2;
+	var y = 2;
+	var width = 280;
+	var height = 440;
 
-		// top-left corner of card
-		var x = 200;
-		var y = 100;
-		var width = 280;
-		var height = 440;
+	var canvas = document.getElementById("testu");
+	var context = canvas.getContext("2d");
+
+	var drawCenteredBorder = function(padding, lineWidth, strokeStyle) {
+		context.beginPath();
+		context.rect(x + padding, y + padding, width - padding * 2, height - padding * 2);
+		context.strokeStyle = strokeStyle || "#000000";
+		context.lineWidth = (lineWidth >= 0) ? lineWidth : 1;
+		context.stroke();
+	};
+
+	var drawCircle = function (cX, cY, radius, lineWidth, fillStyle, strokeStyle) {
+		context.beginPath();
+	    context.arc(cX, cY, radius, 0, 2 * Math.PI, false);
+	    if (fillStyle !== null) {
+	    	context.fillStyle = fillStyle;
+	    	context.fill();
+		}
+		if (strokeStyle !== null && lineWidth > 0) {
+		    context.lineWidth = lineWidth;
+		    context.strokeStyle = strokeStyle;
+		    context.stroke();
+		}
+	};
+
+	var drawRectangle = function (topLeftX, topLeftY, rectWidth, rectHeight, lineWidth, fillStyle, strokeStyle) {
+		context.beginPath();
+		context.rect(topLeftX, topLeftY, rectWidth, rectHeight);
+		context.fillStyle = fillStyle || "#FFFFFF";
+		context.fill();
+		context.strokeStyle = strokeStyle || "#000000";
+		context.lineWidth = (lineWidth >= 0) ? lineWidth : 1;
+		context.stroke();
+	};
+
+	var drawPropertyCard = function() {
 
 		// Card base (white background)
-		context.beginPath();
-		context.rect(x, y, width, height);
-		context.strokeStyle = "#000000";
-		context.lineWidth = 4;
-		context.stroke();
-		context.fillStyle = "#FFFFFF";
-		context.fill();
+		drawRectangle(x, y, width, height, 4, "#FFFFFF", "#000000");
 
 		// Top bar color
 		var topBarWidth = 240;
 		var topBarHeight = 100;
-		context.beginPath();
-		context.rect(x + 20, y + 20, topBarWidth, topBarHeight);
-		context.strokeStyle = "#000000";
-		context.lineWidth = 3;
-		context.stroke();
-		context.fillStyle = "#FFEA00";
-		context.fill();
+		drawRectangle(x + 20, y + 20, topBarWidth, topBarHeight, 3, "#FFEA00", "#000000");
 
 		// Top bar text
 		// TODO: test linebreak w/ 38 Miley Luxury Resort and Spa
@@ -47,13 +68,7 @@ var init = function() {
 		var cX = x + 30;
 		var cY = y + 30;
 		var r = 22;
-		context.beginPath();
-	    context.arc(cX, cY, r, 0, 2 * Math.PI, false);
-	    context.fillStyle = "#FFFFFF";
-	    context.fill();
-	    context.lineWidth = 2;
-	    context.strokeStyle = "#000000";
-	    context.stroke();
+	    drawCircle(cX, cY, r, 2, "#FFFFFF", "#000000");
 
 	    // Monetary value (in top-left circle)
 	    var moneyValue = 9;
@@ -102,7 +117,29 @@ var init = function() {
 	    }
 	};
 
-	drawPropertyCard();
+	var drawMoneyCard = function() {
+		var bgColor = "#EDB98E";
+		// Card base (colored background)
+		drawRectangle(x, y, width, height, 4, bgColor, "#000000");
+
+		// Borders
+		drawCenteredBorder(25, 2, "#000000");
+		drawCenteredBorder(45, 2, "#000000");
+		drawCenteredBorder(50, 1, "#000000");
+
+		// Small circles for monetary value
+		drawCircle(x + 40, y + 40, 28, 1, bgColor, "#000000");
+		drawCircle(x + 40, y + 40, 25, 2, bgColor, "#000000");
+		drawCircle(x + width - 40, y + height - 40, 28, 1, bgColor, "#000000");
+		drawCircle(x + width - 40, y + height - 40, 25, 2, bgColor, "#000000");
+
+		// Circle at center
+		drawCircle(width / 2, height / 2, 80, 4, bgColor, "#000000");
+
+	};
+
+	// drawPropertyCard();
+	drawMoneyCard();
 };
 
 window.addEventListener("load", init, false);
